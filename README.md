@@ -1,5 +1,20 @@
 # GitExercise_Conflicts
 
+1. Clone this repo to your datahub or local computer (your choice)
+1. Merging ex1 branch into main branch... the difference here is a simple line of text conflict\\
+   1. first look at the diff
+   1. now merge e1 into main; note how the conflict gets shown to you...
+   1. resolve the conflict in whichever way you choose,
+   1. add and commit the changes on main
+1. Merging ex2 branch into main branch... the difference here is metadata and binaries from a plot
+   1. first look at the diff
+   1. now checkout e2.
+   1.  remove the metadata and outputs by clearing all cell output
+   1. add and commit the changes on e2
+   1. now merge e2 into main
+   1. resolve the conflict in whichever way you choose,
+   1. add and commit the changes on main# GitExercise_Conflicts
+
 
 ## Purpose
 To teach you to deal with git merge conflicts in 
@@ -86,31 +101,4 @@ And after Part 2 the new graph will look like
 1. Merge ex1 into main
      -  OK here's the task: we want to merge the change in branch ex1 (a change of title on the graph) into main, keeping the ex1 title erasing the old title on main.  But we want to keep our `ax.grid('on')` change which is only on main and not ex1. 
      -  Here's how to do it... click on "main" to make sure we are currently on the main branch.  We want to be on the branch that is the destination of the merge.
-     -  Hover over the local "ex1" branch and a button icon that looks like 3 dots with connecting lines will appear.. when you hover over the button it says "merge this branch into the current one"... go ahead and click it!
-     -  You will get an error message "Failed to merge ex1 into main".  And now there is a new category "Conflicted" just above "Staged"!  Our file `Project.ipynb` is in that heading as expected!  Hover over the file, and click on the icon to "diff this file" that appears.
-     -  You will now see the diff panel... where there are conflicts you have from left to right three possiblities: <br>
-         "Current" (what was in main before the merge) <br>
-         "Common Ancestor" (what the file looked like when ex1 split off from main) <br>
-         "Incoming" (what was in ex1 before the merge) <br>
-         Underneath the triple column you will see a panel where you can manually change the conflict zone to make the outcome what you want.  Whatever you put in this lower panel is what the outcome of the merge will be!
-     - Make the outcome of the merge to be the ex1 title and the main ax.grid('on') command!  Save it by clicking the button on the top right that says "Mark as resolved". You will see that `Project.ipynb` moved from "Conflicted" to "Staged"
-     - Go look at the notebook and make sure it is what you wanted it to be.
-     - It is also useful at this stage to Restart-kernel-and-run-all to ensure that the Frankenstein's monster of code from both branches is actually functional as a combo. A lot of difficult to solve runtime errors come from failing to test the integrated code after the merge! 
-     - When you're finished with the run-all then `Edit -> Clear Outputs of All Cells` before saving to get rid of the useless metadata changes that we do not wish to add to git.  Save the file, add commit the file if git tells you this is an unstaged change.
-   
-## After Part I / II DO THIS or LOSE POINTS 
-All the changes you've made so far only exist in the local copy on Datahub. We need to push the changes from the local copy to your forked copy. 
 
-On the top left of the git panel are a set of cloud icons, one with the arrow pointed down (that's pull) and one with the arrow pointed up (that's push).  In general: If there's a red dot on one of the clouds you need to do that action.  
-
-1. Push your exercise. Now you're done! The changes you've made have appeared on GitHub and are visible to other people including our auto-grading scripts.
-     - Failing to push will mean you don't get the autograder's points on A1
-     - If the push fails its probably because you
-          - either cloned the COGS108 repo instead of the fork that lives in your GitHub.  
-          - or you used http access to clone instead of ssh access.
-          - whichever one it is, to fix it you will need to change the origin so it points at the fork using ssh not http; I'd suggest coming to a TA for help with this.  
-  
-## Congrats!! 
-You've dealt with a simple version of the notebook conflict problem. This workflow will happen in your projects all the time, when person A and person B need to merge their seperate parts of the project together into the final project. 
-
-Another common project workflow is if there's a red dot on pull (down arrow) that means someone else made changes to the remote that you don't have.  Pull operations need to be done before push operations... so if someone changed the remote after your clone but before your push you will have to pull first, merge, and resolve any conflicts before you are allowed to push your changes to remote.  We didn't have to do that here, but its a very normal workflow for your projects.
